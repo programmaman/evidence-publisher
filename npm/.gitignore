@@ -18,5 +18,3 @@ package.local.json
 
 # Local-only test TypeScript config
 tsconfig.test.json
-
-tsconfig.test.json
