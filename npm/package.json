@@ -1,0 +1,63 @@
+{
+  "name": "@rakelabs/evidence-publisher",
+  "version": "0.1.0",
+  "private": false,
+  "description": "Standalone npm SDK for ERC-1497 / Kleros evidence document construction and IPFS publication",
+  "license": "MIT",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/programmaman/evidence-publisher.git"
+  },
+  "homepage": "https://github.com/programmaman/evidence-publisher#readme",
+  "bugs": {
+    "url": "https://github.com/programmaman/evidence-publisher/issues"
+  },
+  "type": "module",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "keywords": [
+    "erc-1497",
+    "kleros",
+    "evidence",
+    "metaevidence",
+    "ipfs"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "default": "./dist/src/index.js"
+    },
+    "./advanced": {
+      "types": "./dist/src/advanced.d.ts",
+      "default": "./dist/src/advanced.js"
+    }
+  },
+  "scripts": {
+    "clean": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"",
+    "build": "npm run clean && tsc -p tsconfig.json",
+    "prepack": "npm run build",
+    "test": "npm run build"
+  },
+  "dependencies": {
+    "@helia/unixfs": "^7.2.1",
+    "dotenv": "^16.4.5",
+    "ethers": "^6.10.0",
+    "helia": "^6.1.4",
+    "yaml": "^2.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "files": [
+    "dist/src"
+  ]
+}

@@ -1,0 +1,14 @@
+# npm package build output
+npm/dist/
+npm/dist-test/
+
+# local environment / secrets
+npm/.env
+npm/.env.local
+npm/.env.*.local
+
+# local-only npm manifest overlay
+npm/package.local.json
+
+# dependencies
+npm/node_modules/

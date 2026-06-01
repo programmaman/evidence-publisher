@@ -1,0 +1,22 @@
+# Build output
+dist/
+dist-test/
+
+# Local-only tests
+test/
+
+# Local environment — never commit secrets
+.env
+.env.local
+.env.*.local
+
+# Node modules
+node_modules/
+
+# Local-only npm manifest overlay
+package.local.json
+
+# Local-only test TypeScript config
+tsconfig.test.json
+
+tsconfig.test.json

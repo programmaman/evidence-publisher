@@ -1,0 +1,31 @@
+name: npm
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-and-pack:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: npm
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: npm/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build package
+        run: npm run build
+
+      - name: Verify publish artifact
+        run: npm pack --dry-run
