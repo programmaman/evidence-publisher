@@ -597,25 +597,3 @@ const evidencePublisher = createHttpEvidencePublisher({
 
 const metaEvidencePublisher = createHttpMetaEvidencePublisher(sharedConfig);
 ```
-
----
-
-## Running tests
-
-```sh
-npm test            # unit tests only (fast)
-npm run test:all    # unit + all e2e (requires Docker for Kubo tests)
-```
-
-## Publishing to npm
-
-This repo publishes from GitHub Actions on version tags.
-
-### Release flow
-
-1. Bump `npm/package.json` version.
-2. Commit and push the change.
-3. Create and push a tag like `v0.1.0`.
-4. GitHub Actions runs `npm publish --access public --provenance`.
-
-The workflow lives in `./.github/workflows/npm.yml`.
