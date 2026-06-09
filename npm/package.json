@@ -38,9 +38,13 @@
   },
   "scripts": {
     "clean": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"",
+    "clean:test": "node -e \"require('node:fs').rmSync('dist-test', { recursive: true, force: true })\"",
     "build": "npm run clean && tsc -p tsconfig.json",
+    "copy-test-fixtures": "node -e \"const fs=require('node:fs'),path=require('node:path');const src='test/e2e/fixtures',dst='dist-test/test/e2e/fixtures';fs.mkdirSync(dst,{recursive:true});fs.readdirSync(src).forEach(f=>fs.copyFileSync(path.join(src,f),path.join(dst,f)));\"",
+    "build:test": "npm run clean:test && tsc -p tsconfig.test.json && npm run copy-test-fixtures",
     "prepack": "npm run build",
-    "test": "npm run build"
+    "test": "npm run build:test && node --test dist-test/test/*.test.js",
+    "test:all": "npm run build:test && node --test dist-test/test/*.test.js"
   },
   "dependencies": {
     "@helia/unixfs": "^7.2.1",
@@ -51,6 +55,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
+    "testcontainers": "^12.0.1",
     "typescript": "^5.0.0"
   },
   "publishConfig": {
