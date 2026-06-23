@@ -1,6 +1,6 @@
 {
   "name": "@rakelabs/evidence-publisher",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": false,
   "description": "Standalone npm SDK for ERC-1497 / Kleros evidence document construction and IPFS publication",
   "license": "MIT",
