@@ -284,7 +284,7 @@ function resolveEnvPlaceholders(value: string, env: Record<string, string>, sour
 function validateUrl(url: string, source: string, field: string): void {
     try {
         // Ensure the URL is syntactically valid, but do not constrain protocol.
-        // eslint-disable-next-line no-new
+         
         new URL(url);
     } catch {
         throw new EvidenceConfigError(`${field} must be a valid absolute URL`, source);
