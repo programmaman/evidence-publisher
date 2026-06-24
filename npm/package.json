@@ -37,6 +37,8 @@
     }
   },
   "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "clean": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"",
     "clean:test": "node -e \"require('node:fs').rmSync('dist-test', { recursive: true, force: true })\"",
     "build": "npm run clean && tsc -p tsconfig.json",
@@ -54,9 +56,12 @@
     "yaml": "^2.5.0"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@types/node": "^20.0.0",
+    "eslint": "^10.5.0",
     "testcontainers": "^12.0.1",
-    "typescript": "^5.0.0"
+    "typescript": "^5.0.0",
+    "typescript-eslint": "^8.61.1"
   },
   "publishConfig": {
     "access": "public"
